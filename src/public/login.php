@@ -6,7 +6,7 @@ if(isset($_POST['submit'])){
 
     $servername = "app_mysqli";
     $userName1 = "root";
-    $passWord1 = "root";
+    $passWord1 = "root";g
 
     try {
         $conn = new PDO("mysql:host=$servername;dbname=loginApp", $userName1, $passWord1);
