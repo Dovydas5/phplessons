@@ -53,5 +53,21 @@ services:
     volumes:
       - /var/lib/mysql
 
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    container_name: phpmyadmin
+    depends_on:
+      - mysql
+      - mysqlVol
+    ports:
+    - 8081:80
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: root
+
+
+
 volumes: {  }
 networks: {  }
