@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@localhost" uuid="9b31196b-e3b4-49f7-8e2b-9829f78ddd5c">
-      <driver-ref>mysql.8</driver-ref>
+    <data-source source="LOCAL" name="User Data Source -" uuid="809c0191-f01f-4bd2-a904-f8b595397a09">
       <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <configured-by-url>true</configured-by-url>
+      <jdbc-driver>java.sql.Driver</jdbc-driver>
+    </data-source>
+    <data-source source="LOCAL" name="loginApp@127.0.0.1" uuid="139ade03-5a59-4e92-bccd-d00149dc622c">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1:3306/loginApp</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="MySQL for 5.1 - @localhost" uuid="1debd0a1-637c-4176-bd40-8ec38c583341">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
     </data-source>
   </component>

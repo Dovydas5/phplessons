@@ -2,11 +2,13 @@
 if(isset($_POST['submit'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+
 
 
     $servername = "app_mysqli";
     $userName1 = "root";
-    $passWord1 = "root";g
+    $passWord1 = "root";
 
     try {
         $conn = new PDO("mysql:host=$servername;dbname=loginApp", $userName1, $passWord1);
@@ -17,7 +19,15 @@ if(isset($_POST['submit'])){
         echo "Connection failed: " . $e->getMessage();
     }
 
-    $query = "INSERT INTO users(username,password)";
+    try {
+        $SQLInsert = "INSERT INTO users (username, password) VALUES (:username,:password)";
+        $stmt = $conn->prepare($SQLInsert);
+        $stmt->execute(array(':username' => $username, ':password' => $hashedPwd));
+
+    }
+    catch (PDOException $e){
+        echo "error: " . $e->getMessage();
+    }
 }
 
 ?>
@@ -42,7 +52,7 @@ if(isset($_POST['submit'])){
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" name="username" class="form-control">
+                <input type="password" name="password" class="form-control">
             </div>
             <input type="submit" name="submit" value="Submit" class="btn btn-primary">
         </form>
