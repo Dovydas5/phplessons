@@ -1,24 +1,11 @@
+<?php include 'db.php'?>
+
 <?php
+
 if(isset($_POST['submit'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-
-
-
-    $servername = "app_mysqli";
-    $userName1 = "root";
-    $passWord1 = "root";
-
-    try {
-        $conn = new PDO("mysql:host=$servername;dbname=loginApp", $userName1, $passWord1);
-        // set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "Connected successfully";
-    } catch(PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
-    }
-
     try {
         $SQLInsert = "INSERT INTO users (username, password) VALUES (:username,:password)";
         $stmt = $conn->prepare($SQLInsert);
