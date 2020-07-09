@@ -45,13 +45,8 @@ services:
       - MYSQL_ROOT_PASSWORD=root
     ports:
       - '3306:3306'
-    volumes_from:
-      - 'service:mysqlVol:rw'
-
-  mysqlVol:
-    image: nfqlt/mysql57-data
     volumes:
-      - /var/lib/mysql
+      - './data:/var/lib/mysql'
 
 
   phpmyadmin:
@@ -60,9 +55,8 @@ services:
     container_name: phpmyadmin
     depends_on:
       - mysql
-      - mysqlVol
     ports:
-    - 8081:80
+      - 8081:80
     environment:
       PMA_HOST: mysql
       MYSQL_ROOT_PASSWORD: root

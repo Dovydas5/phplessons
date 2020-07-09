@@ -15,16 +15,6 @@ if(isset($_POST['submit'])){
         die("nope");
     }
 
-//    $query = "UPDATE users SET";
-//    $query .= "username = '$username',";
-//    $query .= "password = '$password'";
-//    $query .= "WHERE id = $id";
-//    $sth = $conn->prepare($query);
-//    $sth->execute();
-//    if(!$sth){
-//        die("nope");
-//    }
-
 }
 
 ?>
