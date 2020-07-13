@@ -1,14 +1,5 @@
-<?php include 'db.php'?>
-<?php
-if(isset($_POST['submit'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-
-    $sql = "INSERT INTO users(username, password) VALUES ('$username', '$password')";
-    $stmt = $conn->query($sql);
-}
-?>
+<?php include 'functions.php'?>
+<?php CreateTable(); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -24,6 +15,7 @@ if(isset($_POST['submit'])) {
 <div class="container">
 
 <div class="col-xs-6">
+    <h1 class="text-center">CREATE</h1>
     <form action="login_create.php" method="post">
         <div class="form-group">
             <label for="username">Username</label>
@@ -33,7 +25,12 @@ if(isset($_POST['submit'])) {
             <label for="password">Password</label>
             <input type="password" name="password" class="form-control">
         </div>
-        <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+        <input type="submit" name="submit" value="Create" class="btn btn-primary">
+        <a href="login_update.php">UPDATE</a>
+        <a href="login_read.php">READ</a>
+        <a href="login_delete.php">DELETE</a>
+
+
     </form>
 </div>
 </div>

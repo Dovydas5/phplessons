@@ -26,8 +26,12 @@
 </head>
 <body>
 <div class="container">
+    <a href="index.php">HOME</a>
 
-<div class="col-xs-6">
+
+    <div class="col-xs-6">
+    <h1 class="text-center">READ</h1>
+
 
     <?php
     foreach ($result as $results){
